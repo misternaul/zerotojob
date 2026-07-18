@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Zero-to-Job-Ready Roadmap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141b22;
+    --ink-soft:#1e2932;
+    --paper:#eef1ec;
+    --paper-dim:#dfe4dc;
+    --amber:#c98a2b;
+    --amber-soft:#e7c78a;
+    --teal:#4f7c78;
+    --teal-soft:#a9c7c3;
+    --rule: rgba(20,27,34,0.14);
+    --rule-strong: rgba(20,27,34,0.35);
+    --maxw: 880px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Sans 3', sans-serif;
+    font-size:16.5px;
+    line-height:1.6;
+  }
+  ::selection{ background:var(--amber-soft); }
+
+  a{ color:var(--teal); text-decoration-thickness:1px; text-underline-offset:2px; }
+  a:hover{ color:var(--amber); }
+
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    background:
+      radial-gradient(ellipse at 15% -10%, rgba(201,138,43,0.20), transparent 55%),
+      var(--ink);
+    color:var(--paper);
+    padding:78px 0 56px;
+    border-bottom:6px solid var(--amber);
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--amber-soft);
+    margin:0 0 18px;
+  }
+  h1.title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(34px, 5.4vw, 56px);
+    line-height:1.05;
+    margin:0 0 20px;
+    letter-spacing:-0.01em;
+  }
+  .hero p.lede{
+    font-size:18px;
+    max-width:640px;
+    color:#cfd8d5;
+    margin:0 0 8px;
+  }
+  .hero p.lede strong{ color:var(--paper); }
+
+  .stat-row{
+    display:flex; gap:0; margin-top:36px; flex-wrap:wrap;
+    border-top:1px solid rgba(255,255,255,0.18);
+    border-bottom:1px solid rgba(255,255,255,0.18);
+  }
+  .stat{
+    padding:16px 26px 16px 0; margin-right:26px;
+    border-right:1px solid rgba(255,255,255,0.18);
+    flex:0 0 auto;
+  }
+  .stat:last-child{ border-right:none; }
+  .stat .n{ font-family:'Fraunces', serif; font-size:26px; color:var(--amber-soft); display:block; }
+  .stat .l{ font-size:12.5px; color:#9fb0ac; text-transform:uppercase; letter-spacing:.06em; }
+
+  /* ---------- TRAIL NAV ---------- */
+  nav.trail{
+    background:var(--ink-soft);
+    padding:14px 0;
+    position:sticky; top:0; z-index:50;
+    border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  nav.trail .wrap{ display:flex; align-items:center; gap:0; overflow-x:auto; }
+  nav.trail a{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    color:#c7d2cf;
+    text-decoration:none;
+    white-space:nowrap;
+    padding:6px 16px;
+    border-left:2px solid rgba(255,255,255,0.15);
+    letter-spacing:.03em;
+  }
+  nav.trail a:first-child{ border-left:none; padding-left:0; }
+  nav.trail a:hover{ color:var(--amber-soft); }
+
+  /* ---------- SECTIONS ---------- */
+  main{ padding:56px 0 20px; }
+  section.block{ margin-bottom:64px; scroll-margin-top:52px; }
+
+  .callout{
+    background:#fff9ee;
+    border:1px solid var(--rule);
+    border-left:5px solid var(--amber);
+    padding:22px 26px;
+    border-radius:2px;
+    margin:0 0 48px;
+  }
+  .callout h3{
+    margin:0 0 10px; font-family:'Fraunces', serif; font-weight:600; font-size:19px;
+  }
+  .callout ul{ margin:8px 0 0; padding-left:20px; }
+  .callout li{ margin-bottom:6px; }
+
+  .quarter-head{
+    display:flex; align-items:baseline; gap:16px; margin-bottom:6px;
+    border-bottom:2px solid var(--ink); padding-bottom:14px;
+  }
+  .quarter-mark{
+    font-family:'Fraunces', serif; font-weight:700; font-size:15px;
+    color:var(--paper); background:var(--ink);
+    padding:6px 12px; border-radius:2px; flex:0 0 auto;
+  }
+  .quarter-head h2{
+    font-family:'Fraunces', serif; font-weight:600; font-size:26px; margin:0;
+  }
+  .quarter-sub{
+    font-size:14.5px; color:#4b5964; margin:10px 0 22px;
+  }
+  .checkpoint{
+    font-size:14.5px; margin-top:22px;
+    background:var(--teal); color:#eef4f2;
+    padding:14px 18px; border-radius:2px;
+  }
+  .checkpoint b{ font-family:'JetBrains Mono', monospace; letter-spacing:.03em; }
+
+  table.weeks{
+    width:100%; border-collapse:collapse; margin-top:6px;
+    font-size:15px;
+  }
+  table.weeks caption{ text-align:left; }
+  table.weeks th{
+    text-align:left; font-family:'JetBrains Mono', monospace; font-size:11.5px;
+    text-transform:uppercase; letter-spacing:.06em; color:#5b6a66;
+    border-bottom:1px solid var(--rule-strong); padding:8px 10px 8px 0;
+  }
+  table.weeks td{
+    padding:13px 10px 13px 0; border-bottom:1px solid var(--rule);
+    vertical-align:top;
+  }
+  table.weeks td.wk{
+    font-family:'Fraunces', serif; font-weight:600; font-size:17px;
+    color:var(--amber); width:52px; white-space:nowrap;
+  }
+  table.weeks tr:hover td{ background:rgba(201,138,43,0.05); }
+  .res-tag{
+    display:inline-block; font-family:'JetBrains Mono', monospace; font-size:11.5px;
+    background:var(--paper-dim); border:1px solid var(--rule-strong);
+    padding:1px 7px; border-radius:10px; margin:2px 4px 0 0; color:var(--ink-soft);
+    text-decoration:none;
+  }
+  .res-tag:hover{ background:var(--amber-soft); border-color:var(--amber); color:var(--ink); }
+
+  /* ---------- RESOURCE LIBRARY ---------- */
+  .res-lib h2{ font-family:'Fraunces', serif; font-weight:600; font-size:28px; margin-bottom:6px; }
+  .res-lib > p{ color:#4b5964; margin-top:0; margin-bottom:30px; max-width:620px; }
+  .res-cat{ margin-bottom:34px; }
+  .res-cat h3{
+    font-family:'JetBrains Mono', monospace; font-size:13px; text-transform:uppercase;
+    letter-spacing:.08em; color:var(--teal); border-bottom:1px solid var(--rule); padding-bottom:8px;
+  }
+  .res-item{
+    display:flex; justify-content:space-between; align-items:baseline; gap:18px;
+    padding:11px 0; border-bottom:1px solid var(--rule);
+  }
+  .res-item .name{ font-weight:600; }
+  .res-item .why{ font-size:14px; color:#4b5964; margin-top:2px; }
+  .res-item a.link{
+    font-family:'JetBrains Mono', monospace; font-size:13px; white-space:nowrap;
+    flex:0 0 auto;
+  }
+
+  /* ---------- NON-NEGOTIABLES / FOOTER ---------- */
+  .rules{
+    background:var(--ink); color:var(--paper);
+    padding:40px 0 46px; margin-top:20px;
+  }
+  .rules h2{ font-family:'Fraunces', serif; font-size:24px; margin:0 0 18px; color:var(--paper); }
+  .rules ol{ padding-left:20px; margin:0; }
+  .rules li{ margin-bottom:12px; color:#d7ded9; }
+  .rules li strong{ color:var(--amber-soft); }
+
+  footer{
+    text-align:center; padding:30px 0 60px; font-size:13.5px; color:#75837e;
+  }
+
+  @media print{
+    nav.trail{ position:static; }
+    .callout, .checkpoint{ break-inside:avoid; }
+    table.weeks tr{ break-inside:avoid; }
+  }
+
+  @media (max-width:600px){
+    .hero{ padding:56px 0 40px; }
+    .stat-row{ gap:8px; }
+    .stat{ padding-right:16px; margin-right:16px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">A 52-week self-study program · zero prior knowledge required</p>
+    <h1 class="title">The Zero-to-Job-Ready Roadmap</h1>
+    <p class="lede">A week-by-week path from <strong>never having written a line of code</strong> to being genuinely competitive for a junior software engineering internship — and, a year after that, a full-time role. Built for anyone to follow, alongside a full course load, a job, or nothing but time.</p>
+    <div class="stat-row">
+      <div class="stat"><span class="n">52</span><span class="l">weeks</span></div>
+      <div class="stat"><span class="n">4</span><span class="l">quarters</span></div>
+      <div class="stat"><span class="n">1</span><span class="l">language at a time</span></div>
+      <div class="stat"><span class="n">0</span><span class="l">prior knowledge needed</span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="trail">
+  <div class="wrap">
+    <a href="#how-to-use">How to use this</a>
+    <a href="#q1">Q1 · Python from zero</a>
+    <a href="#q2">Q2 · SQL + JS + C#</a>
+    <a href="#q3">Q3 · Backend, React, applying</a>
+    <a href="#q4">Q4 · Systems, capstone</a>
+    <a href="#resources">Resource library</a>
+    <a href="#rules">Non-negotiables</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section class="block" id="how-to-use">
+    <div class="callout">
+      <h3>How to use this roadmap</h3>
+      <p>Every week has one clear target — a topic to learn and something small to build with it. Spend <strong>45–90 focused minutes a day, 5–6 days a week</strong>. In a hard exam week, do less — never zero. Every resource is linked directly below its week, and the full library is collected near the bottom if you'd rather browse by tool.</p>
+      <ul>
+        <li>Push whatever you build to <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> the same week you build it — don't let a backlog form.</li>
+        <li>One language, one framework, one new tool at a time. Depth beats breadth for the first year.</li>
+        <li>If you already know a topic in a given week, skip ahead — this is a floor, not a cage.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ QUARTER 1 ============ -->
+  <section class="block" id="q1">
+    <div class="quarter-head">
+      <span class="quarter-mark">Q1</span>
+      <h2>Weeks 1–13 — Python from zero, real fundamentals</h2>
+    </div>
+    <p class="quarter-sub">Goal: go from never having written code to being able to open a blank file and build something, without panicking. Everything else in this roadmap depends on this quarter being solid.</p>
+
+    <table class="weeks">
+      <thead><tr><th>Wk</th><th>Target</th></tr></thead>
+      <tbody>
+        <tr><td class="wk">1</td><td>Install Python + VS Code. Variables, data types, input/output, if/else. Write 5 tiny programs (temperature converter, even/odd checker, simple calculator).
+          <br><a class="res-tag" href="https://cs50.harvard.edu/python/" target="_blank" rel="noopener">CS50P</a></td></tr>
+        <tr><td class="wk">2</td><td>Loops (for/while), basic string manipulation. Build: a number-guessing game, a text countdown timer.
+          <br><a class="res-tag" href="https://cs50.harvard.edu/python/" target="_blank" rel="noopener">CS50P — Week 2–3</a></td></tr>
+        <tr><td class="wk">3</td><td>Functions — parameters, return values, scope. Rebuild Week 1–2 programs using functions instead of one long script.</td></tr>
+        <tr><td class="wk">4</td><td>Lists and tuples — indexing, slicing, common methods. Build: a contact list stored as a list of dictionaries.</td></tr>
+        <tr><td class="wk">5</td><td>Dictionaries and sets. Build: a word-frequency counter that reads a text file.</td></tr>
+        <tr><td class="wk">6</td><td>File I/O (reading/writing files), error handling with try/except. Build: a CLI to-do list that saves to a file.</td></tr>
+        <tr><td class="wk">7</td><td>OOP part 1 — classes, objects, <code>__init__</code>, methods, attributes. Rebuild the to-do list using a <code>Task</code> class.</td></tr>
+        <tr><td class="wk">8</td><td>OOP part 2 — inheritance, encapsulation, polymorphism. This is the concept set that transfers directly to every other language later.</td></tr>
+        <tr><td class="wk">9</td><td>Git &amp; GitHub properly: init, add/commit/push, branches, .gitignore, real commit messages. Push everything from Weeks 1–8 into one organized repo.
+          <br><a class="res-tag" href="https://www.theodinproject.com/paths/foundations/courses/foundations" target="_blank" rel="noopener">Odin Project — Git lessons</a></td></tr>
+        <tr><td class="wk">10</td><td>LeetCode Easy — arrays &amp; strings. Target: 4–5 problems. Write the brute-force solution first, then optimize.
+          <br><a class="res-tag" href="https://neetcode.io/roadmap" target="_blank" rel="noopener">NeetCode roadmap</a>
+          <a class="res-tag" href="https://leetcode.com/" target="_blank" rel="noopener">LeetCode</a></td></tr>
+        <tr><td class="wk">11</td><td>LeetCode Easy — hashmaps &amp; two pointers. Target: 4–5 problems.</td></tr>
+        <tr><td class="wk">12</td><td>Recursion basics, plus an intuitive (not mathematical) feel for Big-O: what makes something O(n) vs O(n²).</td></tr>
+        <tr><td class="wk">13</td><td>Catch-up + consolidation. Finish anything unfinished. Push a clean, well-documented Python repo to GitHub.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="checkpoint"><b>Checkpoint:</b> write a working Python program from a blank file without googling syntax every two minutes, explain OOP in plain English, ~10–15 LeetCode Easy problems done.</div>
+  </section>
+
+  <!-- ============ QUARTER 2 ============ -->
+  <section class="block" id="q2">
+    <div class="quarter-head">
+      <span class="quarter-mark">Q2</span>
+      <h2>Weeks 14–26 — SQL depth, JavaScript basics, C# revisit</h2>
+    </div>
+    <p class="quarter-sub">Databases and the browser enter the picture. C# comes back not as a new language, but as "same concepts, new syntax."</p>
+
+    <table class="weeks">
+      <thead><tr><th>Wk</th><th>Target</th></tr></thead>
+      <tbody>
+        <tr><td class="wk">14</td><td>SQL refresher: SELECT, WHERE, ORDER BY, basic filtering.
+          <br><a class="res-tag" href="https://sqlzoo.net/" target="_blank" rel="noopener">SQLZoo</a></td></tr>
+        <tr><td class="wk">15</td><td>SQL joins — INNER, LEFT, RIGHT — until you can explain each without hesitating.
+          <br><a class="res-tag" href="https://sqlzoo.net/" target="_blank" rel="noopener">SQLZoo — Joins</a></td></tr>
+        <tr><td class="wk">16</td><td>SQL aggregates — GROUP BY, HAVING, COUNT/SUM/AVG. Practice against any database you can access or build a small sample one.</td></tr>
+        <tr><td class="wk">17</td><td>SQL subqueries vs CTEs, and normalization basics (1NF–3NF) — conceptual, not memorized.</td></tr>
+        <tr><td class="wk">18</td><td>JavaScript basics: variables, functions, arrays, objects. Same concepts as Python, new syntax — this should move fast.
+          <br><a class="res-tag" href="https://www.theodinproject.com/paths/foundations/courses/foundations" target="_blank" rel="noopener">Odin Project — Foundations</a>
+          <a class="res-tag" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener">MDN JavaScript</a></td></tr>
+        <tr><td class="wk">19</td><td>DOM manipulation basics (<code>querySelector</code>, event listeners). Build: an interactive to-do list in the browser (HTML+CSS+JS).</td></tr>
+        <tr><td class="wk">20</td><td>Fetch API, async/await basics — enough to call a public API (e.g. a weather API) and display the results on a page.</td></tr>
+        <tr><td class="wk">21</td><td>Back to DSA — linked lists. Target: 4 problems in Python.
+          <br><a class="res-tag" href="https://leetcode.com/" target="_blank" rel="noopener">LeetCode</a></td></tr>
+        <tr><td class="wk">22</td><td>DSA — stacks &amp; queues. Target: 4 problems.</td></tr>
+        <tr><td class="wk">23</td><td>C# revisit begins — same OOP concepts, new syntax. Rebuild one small Python program (e.g. the to-do CLI) in C#.
+          <br><a class="res-tag" href="https://learn.microsoft.com/en-us/training/paths/get-started-c-sharp-part-1/" target="_blank" rel="noopener">Microsoft — Get Started with C#</a>
+          <a class="res-tag" href="https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials" target="_blank" rel="noopener">C# interactive tutorials</a></td></tr>
+        <tr><td class="wk">24</td><td>Keep building small C# programs until the syntax stops feeling foreign.</td></tr>
+        <tr><td class="wk">25</td><td>Start ASP.NET Core basics — what a Web API is, routes, controllers. Follow a tutorial and build a "hello world" API.
+          <br><a class="res-tag" href="https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api" target="_blank" rel="noopener">ASP.NET Core — first Web API</a></td></tr>
+        <tr><td class="wk">26</td><td>Catch-up + consolidation. Push SQL practice queries and the JS to-do app to GitHub with proper READMEs.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="checkpoint"><b>Checkpoint:</b> comfortable writing real SQL queries against your own schema, a working browser-based JS app, and C# feels familiar again.</div>
+  </section>
+
+  <!-- ============ QUARTER 3 ============ -->
+  <section class="block" id="q3">
+    <div class="quarter-head">
+      <span class="quarter-mark">Q3</span>
+      <h2>Weeks 27–39 — Backend project, React, start applying</h2>
+    </div>
+    <p class="quarter-sub">This is the quarter where the pieces connect into a real, deployed full-stack app — and where applications start going out.</p>
+
+    <table class="weeks">
+      <thead><tr><th>Wk</th><th>Target</th></tr></thead>
+      <tbody>
+        <tr><td class="wk">27</td><td>Connect an ASP.NET Core Web API to a database via Entity Framework Core — basic CRUD on one table.
+          <br><a class="res-tag" href="https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api" target="_blank" rel="noopener">ASP.NET Core tutorial</a></td></tr>
+        <tr><td class="wk">28</td><td>Finish a full CRUD API — e.g. a "Client Tracker." Test every endpoint with Postman.
+          <br><a class="res-tag" href="https://www.postman.com/" target="_blank" rel="noopener">Postman</a></td></tr>
+        <tr><td class="wk">29</td><td>Add basic authentication (JWT) to the API — register/login endpoints.</td></tr>
+        <tr><td class="wk">30</td><td>React basics: components, JSX, props. Rebuild a static page as a set of React components.
+          <br><a class="res-tag" href="https://react.dev/learn" target="_blank" rel="noopener">react.dev — Learn React</a></td></tr>
+        <tr><td class="wk">31</td><td>React <code>useState</code>, handling forms and events. Build: a form that adds items to an on-screen list.</td></tr>
+        <tr><td class="wk">32</td><td>React <code>useEffect</code>, fetching data from your own API (the backend from Weeks 27–29).</td></tr>
+        <tr><td class="wk">33</td><td>Connect frontend and backend fully — React talking to your API, auth flow working end-to-end.</td></tr>
+        <tr><td class="wk">34</td><td>DSA — trees (inorder/preorder/postorder traversal, BFS/DFS). Target: 5 problems.
+          <br><a class="res-tag" href="https://neetcode.io/roadmap" target="_blank" rel="noopener">NeetCode</a></td></tr>
+        <tr><td class="wk">35</td><td>DSA — graph basics (BFS/DFS on graphs). Target: 4 problems.</td></tr>
+        <tr><td class="wk">36</td><td>Update resume and LinkedIn with the full-stack project. Start applying to internships this week — don't wait to "feel ready."</td></tr>
+        <tr><td class="wk">37</td><td>Behavioral interview prep — STAR method. Prepare 5 real stories from your own projects and experience.</td></tr>
+        <tr><td class="wk">38</td><td>Contribute to one open-source repo — find a "good first issue" tag, even something small.</td></tr>
+        <tr><td class="wk">39</td><td>Catch-up + polish. Deploy your full-stack app live so it's a real link, not just code.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="checkpoint"><b>Checkpoint:</b> one deployed full-stack project (frontend + API + database + auth), applications going out, and you can talk through your projects fluently.</div>
+  </section>
+
+  <!-- ============ QUARTER 4 ============ -->
+  <section class="block" id="q4">
+    <div class="quarter-head">
+      <span class="quarter-mark">Q4</span>
+      <h2>Weeks 40–52 — Systems thinking, Docker, testing, capstone</h2>
+    </div>
+    <p class="quarter-sub">The junior-level "employer signals" that most self-taught candidates skip — and a capstone that becomes your #1 interview talking point.</p>
+
+    <table class="weeks">
+      <thead><tr><th>Wk</th><th>Target</th></tr></thead>
+      <tbody>
+        <tr><td class="wk">40</td><td>System design basics — client-server model, what a load balancer / API gateway is, conceptually.
+          <br><a class="res-tag" href="https://github.com/donnemartin/system-design-primer" target="_blank" rel="noopener">System Design Primer</a></td></tr>
+        <tr><td class="wk">41</td><td>System design — caching basics, what a database index actually does and why it speeds things up.</td></tr>
+        <tr><td class="wk">42</td><td>Docker basics — what a container is. Write a Dockerfile for your API, run it locally.
+          <br><a class="res-tag" href="https://docs.docker.com/get-started/" target="_blank" rel="noopener">Docker — Get Started</a></td></tr>
+        <tr><td class="wk">43</td><td>Unit testing basics — write tests for 2–3 of your API's endpoints.</td></tr>
+        <tr><td class="wk">44</td><td>DSA — dynamic programming intro. Go slow, redo problems you don't get on the first try. Target: 4 problems.</td></tr>
+        <tr><td class="wk">45</td><td>DSA — more DP, plus review of weak areas from earlier quarters.</td></tr>
+        <tr><td class="wk">46</td><td>Scope your capstone project — something bigger, closer to production quality, ideally solving a real problem.</td></tr>
+        <tr><td class="wk">47</td><td>Capstone — backend + database setup.</td></tr>
+        <tr><td class="wk">48</td><td>Capstone — frontend build-out.</td></tr>
+        <tr><td class="wk">49</td><td>Capstone — authentication, polish, deploy live.</td></tr>
+        <tr><td class="wk">50</td><td>Mock interviews — technical and behavioral, at least two of each.
+          <br><a class="res-tag" href="https://www.pramp.com/" target="_blank" rel="noopener">Pramp</a></td></tr>
+        <tr><td class="wk">51</td><td>Final resume and portfolio pass — every project has a live link, a clean README, and a one-line "why this matters."</td></tr>
+        <tr><td class="wk">52</td><td>Review the full year. Note what's solid, what's still shaky, and set the next 6-month focus.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="checkpoint"><b>Checkpoint:</b> a genuinely impressive capstone, live and deployed; Docker and testing on your resume with real backing behind them; real interview reps done.</div>
+  </section>
+
+  <!-- ============ RESOURCE LIBRARY ============ -->
+  <section class="block res-lib" id="resources">
+    <h2>Resource library</h2>
+    <p>Every link used across all 52 weeks, in one place. All free.</p>
+
+    <div class="res-cat">
+      <h3>Programming fundamentals</h3>
+      <div class="res-item"><div><div class="name">CS50P — Introduction to Programming with Python</div><div class="why">Harvard's free intro course. Assumes zero prior knowledge — this is where Weeks 1–8 live.</div></div><a class="link" href="https://cs50.harvard.edu/python/" target="_blank" rel="noopener">cs50.harvard.edu/python</a></div>
+      <div class="res-item"><div><div class="name">The Odin Project — Foundations</div><div class="why">Free full path covering Git, HTML/CSS, and JavaScript from scratch, in order.</div></div><a class="link" href="https://www.theodinproject.com/paths/foundations/courses/foundations" target="_blank" rel="noopener">theodinproject.com</a></div>
+      <div class="res-item"><div><div class="name">MDN Web Docs — JavaScript</div><div class="why">The reference to keep open in a tab while building anything in JS.</div></div><a class="link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener">developer.mozilla.org</a></div>
+    </div>
+
+    <div class="res-cat">
+      <h3>Data structures &amp; algorithms</h3>
+      <div class="res-item"><div><div class="name">NeetCode Roadmap</div><div class="why">A structured, topic-by-topic order to learn DSA patterns — arrays through dynamic programming.</div></div><a class="link" href="https://neetcode.io/roadmap" target="_blank" rel="noopener">neetcode.io/roadmap</a></div>
+      <div class="res-item"><div><div class="name">LeetCode</div><div class="why">Where you actually solve the problems. Free tier is enough for this whole plan.</div></div><a class="link" href="https://leetcode.com/" target="_blank" rel="noopener">leetcode.com</a></div>
+    </div>
+
+    <div class="res-cat">
+      <h3>Databases</h3>
+      <div class="res-item"><div><div class="name">SQLZoo</div><div class="why">Interactive SQL tutorial — write real queries against real tables in the browser, no install needed.</div></div><a class="link" href="https://sqlzoo.net/" target="_blank" rel="noopener">sqlzoo.net</a></div>
+    </div>
+
+    <div class="res-cat">
+      <h3>C# &amp; backend</h3>
+      <div class="res-item"><div><div class="name">Microsoft Learn — Get Started with C#</div><div class="why">Official, free, beginner-first path into C#.</div></div><a class="link" href="https://learn.microsoft.com/en-us/training/paths/get-started-c-sharp-part-1/" target="_blank" rel="noopener">learn.microsoft.com</a></div>
+      <div class="res-item"><div><div class="name">C# Interactive Tutorials</div><div class="why">Write and run C# directly in the browser — no setup required to start.</div></div><a class="link" href="https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials" target="_blank" rel="noopener">learn.microsoft.com</a></div>
+      <div class="res-item"><div><div class="name">ASP.NET Core — Create a Web API</div><div class="why">The official step-by-step tutorial this plan's backend weeks are built around.</div></div><a class="link" href="https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api" target="_blank" rel="noopener">learn.microsoft.com</a></div>
+    </div>
+
+    <div class="res-cat">
+      <h3>Frontend</h3>
+      <div class="res-item"><div><div class="name">react.dev — Learn React</div><div class="why">The official React docs, rewritten to teach from scratch with hooks.</div></div><a class="link" href="https://react.dev/learn" target="_blank" rel="noopener">react.dev/learn</a></div>
+    </div>
+
+    <div class="res-cat">
+      <h3>Systems, tools &amp; interviews</h3>
+      <div class="res-item"><div><div class="name">System Design Primer</div><div class="why">The most-used free repo for junior-to-senior system design concepts, open source.</div></div><a class="link" href="https://github.com/donnemartin/system-design-primer" target="_blank" rel="noopener">github.com</a></div>
+      <div class="res-item"><div><div class="name">Docker — Get Started</div><div class="why">Official docs walking through containers, images, and your first Dockerfile.</div></div><a class="link" href="https://docs.docker.com/get-started/" target="_blank" rel="noopener">docs.docker.com</a></div>
+      <div class="res-item"><div><div class="name">Postman</div><div class="why">Test your own API endpoints without needing a frontend built yet.</div></div><a class="link" href="https://www.postman.com/" target="_blank" rel="noopener">postman.com</a></div>
+      <div class="res-item"><div><div class="name">GitHub</div><div class="why">Where every project in this plan gets pushed, the same week it's built.</div></div><a class="link" href="https://github.com/" target="_blank" rel="noopener">github.com</a></div>
+      <div class="res-item"><div><div class="name">Pramp</div><div class="why">Free peer mock interviews — technical and behavioral, matched with other candidates.</div></div><a class="link" href="https://www.pramp.com/" target="_blank" rel="noopener">pramp.com</a></div>
+    </div>
+  </section>
+
+</main>
+
+<section class="rules" id="rules">
+  <div class="wrap">
+    <h2>Non-negotiables</h2>
+    <ol>
+      <li><strong>One language at a time.</strong> Trying to keep four languages equally warm from zero is how people end up shallow in all of them.</li>
+      <li><strong>DSA never fully stops once it starts (Week 10).</strong> Two problems in a brutal week is enough to keep the habit alive — don't let it drop to zero.</li>
+      <li><strong>Every project goes on GitHub the same week it's built.</strong> A backlog of "I'll push it later" always wins if you let it start.</li>
+      <li><strong>Don't add a new tool or framework until the current one has a working project behind it</strong> — not just a finished tutorial.</li>
+      <li><strong>Applying starts in Week 36, not when you "feel ready."</strong> Readiness is proven in interviews, not decided in advance.</li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  Built as a personal study plan — copy it, adapt it, skip what you already know.
+</footer>
+
+</body>
+</html>
